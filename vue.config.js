@@ -6,7 +6,7 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: 'https://wx.tuwan.com',
+        target: 'https://wap.showstart.com',
         // ws: true,
         changeOrigin: true
       },
