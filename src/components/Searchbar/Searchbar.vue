@@ -3,7 +3,7 @@
         <div class="search_box">
             <div class="city" @click="goCity()">
                 <i class="iconfont icon-icon_gps_fill"></i>
-                <p>北京</p>
+                <p>{{cityName}}</p>
             </div>
             <div class="scarch">
                 <input type="text" placeholder="搜索演出关键字" @click="goSearch()">
@@ -17,7 +17,25 @@
 </template>
 
 <script>
+import Axios from 'axios'
 export default {
+  data () {
+    return {
+      cityName: ''
+    }
+  },
+  mounted () {
+    Axios({
+      url: `https://wap.showstart.com/api/wap/city/cityName.json?cityCode=${this.$router.history.current.params.cityId}&st_flpv=1583331135915yd43ssKI3ECybIL3C1Wx&sign=&trackPath=&terminal=wap`
+    }).then(res => {
+      // console.log(res.data)
+      if (this.$router.history.current.params.cityId === '0') {
+        this.cityName = '全国'
+      } else {
+        this.cityName = res.data.result.name
+      }
+    })
+  },
   methods: {
     goSearch () {
       this.$router.push('/search')

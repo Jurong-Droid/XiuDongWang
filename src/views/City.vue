@@ -16,24 +16,24 @@
 <script>
 import Axios from 'axios'
 export default {
-    data(){
-        return{
-            citylist:[]
-        }
-    },
+  data () {
+    return {
+      citylist: []
+    }
+  },
   mounted () {
     Axios({
       url: 'https://wap.showstart.com/api/wap/city/group.json?st_flpv=158022192437734d8v1OlIMtHpxDl87Vg&sign=&trackPath=&terminal=wap'
     }).then(res => {
-      console.log(res.data)
+    //   console.log(res.data)
       this.citylist = res.data.result
     })
   },
-  methods:{
-      changeCity(CityId){
-          console.log(CityId)
-          this.$router.push(`/home/${CityId}`)
-      }
+  methods: {
+    changeCity (CityId) {
+      //   console.log(CityId)
+      this.$router.push(`/home/${CityId}`)
+    }
   }
 }
 </script>

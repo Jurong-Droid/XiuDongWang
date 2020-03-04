@@ -37,9 +37,8 @@ export default {
     Scarch
   },
   mounted () {
-    console.log(this.props)
     Axios({
-      url: 'https://wap.showstart.com/api/wap/home/homePage.json?pageNo=1&cityCode=10&showTime=7&st_flpv=158022192437734d8v1OlIMtHpxDl87Vg&sign=&trackPath=&terminal=wap',
+      url: `https://wap.showstart.com/api/wap/home/homePage.json?pageNo=1&cityCode=${this.$router.history.current.params.cityId}&showTime=7&st_flpv=158022192437734d8v1OlIMtHpxDl87Vg&sign=&trackPath=&terminal=wap`,
       method: 'POST'
     }).then(res => {
       // console.log(res.data)
@@ -47,7 +46,7 @@ export default {
       this.prolist = res.data.result.styles
     })
     Axios({
-      url: 'https://wap.showstart.com/api/wap/activity/list.json?pageNo=1&cityCode=10&showTime=7&st_flpv=158022192437734d8v1OlIMtHpxDl87Vg&sign=&trackPath=&terminal=wap'
+      url: `https://wap.showstart.com/api/wap/activity/list.json?pageNo=1&cityCode=${this.$router.history.current.params.cityId}&showTime=7&st_flpv=158022192437734d8v1OlIMtHpxDl87Vg&sign=&trackPath=&terminal=wap`
     }).then(res => {
       // console.log(res.data.result.activityList)
       this.datalist = res.data.result.activityList
