@@ -9,7 +9,7 @@
     <ul class="prolist">
       <li v-for="data in prolist" :key="data.key">
         <img :src="data.imageURL">
-        <p>{{ data.showName }}</p>
+        <p>{{data.showName}}</p>
       </li>
     </ul>
     <ul class="datalist">
